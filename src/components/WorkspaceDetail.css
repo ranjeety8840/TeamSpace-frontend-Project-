@@ -1,0 +1,706 @@
+/* WorkspaceDetail.css */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.workspace-detail-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%; /* Ensure it takes full height of html/body */
+  background-color: #f4f7fa;
+  overflow-y: auto; /* Allow scrolling for the main container if content overflows */
+}
+
+.workspace-detail-header {
+  background-color: #3f51b5;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.workspace-detail-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.workspace-detail-nav button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  margin-left: 10px;
+}
+
+.workspace-detail-nav button:hover {
+  background-color: #21a1f1;
+  color: white;
+}
+
+/* Main content layout with left and right sidebars */
+.workspace-detail-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: row; /* Arrange items in a row */
+  gap: 24px;
+  align-items: flex-start; /* Align items to the top */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .workspace-detail-content {
+    flex-direction: column; /* Stack sections vertically */
+    gap: 20px; /* Adjust gap for vertical stacking */
+  }
+
+  .left-sidebar {
+    min-width: unset;
+    max-width: 100%; /* Take full width */
+    padding: 15px;
+    order: 1; /* Keep it at the top */
+  }
+
+  .section-nav {
+    flex-direction: row; /* Make navigation buttons horizontal */
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    justify-content: center; /* Center buttons */
+    gap: 8px; /* Smaller gap for horizontal buttons */
+  }
+
+  .section-nav button {
+    padding: 10px 15px;
+    border-radius: 5px; /* Make buttons fully rounded or square */
+    text-align: center;
+    flex-grow: 1; /* Allow buttons to grow to fill space */
+  }
+
+  .main-content-area {
+    max-height: unset; /* Remove fixed max-height */
+    padding-right: 0; /* Remove padding for scrollbar, if it conflicts */
+    order: 2; /* Main content after left sidebar */
+  }
+
+  .right-sidebar-area {
+    min-width: unset;
+    max-width: 100%; /* Take full width */
+    order: 3; /* Move to the bottom */
+  }
+}
+
+/* Left Sidebar for Navigation */
+.left-sidebar {
+  min-width: 200px;
+  max-width: 240px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  height: fit-content; /* Adjust height based on content */
+}
+
+.section-nav {
+  display: flex;
+  flex-direction: column; /* Vertical navigation */
+  gap: 10px;
+}
+
+.section-nav button {
+  background: none;
+  border: none;
+  color: #3f51b5;
+  padding: 12px 24px;
+  text-align: left;
+  font-size: 1rem;
+  border-radius: 0 20px 20px 0; /* Rounded on the right side */
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.section-nav button.active,
+.section-nav button:hover {
+  background: #3f51b5;
+  color: #fff;
+}
+
+/* Center Content Area (dynamic sections) */
+.main-content-area {
+  flex: 1; /* Takes up remaining space */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* max-height: calc(100vh - 100px); Adjust based on header/footer/padding */
+  overflow-y: auto;
+  padding-right: 10px; /* Add some padding for scrollbar */
+  scroll-behavior: auto; /* Prevent smooth scrolling when content changes */
+}
+
+.section-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure the active section takes full height */
+  overflow-y: auto; /* Enable scrolling for the section content */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Right Sidebar Area (always visible sections like Members, Files, Comments) */
+.right-sidebar-area {
+  min-width: 280px; /* Adjust as needed */
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Document Editor & Management */
+.document-editor-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.document-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.document-actions button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+.document-actions .new-document-input {
+  flex-grow: 1;
+  margin-right: 10px;
+  min-width: 150px;
+}
+
+.document-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.document-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.document-list li:last-child {
+  border-bottom: none;
+}
+
+.document-list-item-title {
+  flex-grow: 1;
+  cursor: pointer;
+  color: #007bff;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.document-list-item-title:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.document-list-actions button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  transition: color 0.2s ease;
+}
+
+.document-list-actions button:hover {
+  color: #c82333;
+}
+
+.document-editor-area .quill {
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.document-editor-area .ql-container {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: #fff;
+}
+
+.document-editor-area .ql-toolbar {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.version-history-toggle {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.version-history-list {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fefefe;
+}
+
+.version-history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.version-history-item:last-child {
+  border-bottom: none;
+}
+
+.version-info {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.version-info span {
+  font-weight: bold;
+}
+
+.revert-button {
+  background-color: #ffc107;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.revert-button:hover {
+  background-color: #e0a800;
+}
+
+.file-upload-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-upload-input {
+  margin-bottom: 10px;
+}
+
+.file-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.file-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.file-list li:last-child {
+  border-bottom: none;
+}
+
+.file-item-name {
+  flex-grow: 1;
+}
+
+.file-item-actions button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.file-item-actions button:hover {
+  background-color: #0056b3;
+}
+
+.file-item-actions .delete-button {
+  background-color: #dc3545;
+}
+
+.file-item-actions .delete-button:hover {
+  background-color: #c82333;
+}
+
+/* Members Section Styles */
+.member-management-section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.member-management-section h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f2f5;
+}
+
+.member-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.member-management-section input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.member-management-section input:focus {
+  border-color: #3f51b5;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.1);
+}
+
+.member-management-section button {
+  padding: 12px 20px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.member-management-section button:hover {
+  background-color: #303f9f;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.member-list {
+  margin-top: 20px;
+}
+
+.member-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.member-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.member-list li:hover {
+  background-color: #f0f2f5;
+  transform: translateX(5px);
+}
+
+.member-list li:last-child {
+  margin-bottom: 0;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0; /* Prevent member info from shrinking */
+}
+
+.member-info .member-email {
+  font-weight: 500;
+  color: #333;
+}
+
+.member-info .member-role {
+  font-size: 0.85rem;
+  color: #666;
+  background-color: #e8eaf6;
+  padding: 4px 8px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.member-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap; /* Allow actions to wrap to the next line */
+  justify-content: flex-end; /* Align actions to the end when wrapped */
+}
+
+.member-actions select {
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.member-actions select:focus {
+  border-color: #3f51b5;
+  outline: none;
+}
+
+.member-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.member-actions .update-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.member-actions .update-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.member-actions .remove-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.member-actions .remove-button:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.member-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.member-status.online {
+  color: #4CAF50;
+}
+
+.member-status.offline {
+  color: #9e9e9e;
+}
+
+.member-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.member-status-dot.online {
+  background-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.member-status-dot.offline {
+  background-color: #9e9e9e;
+}
+
+/* Member Summary */
+.member-summary {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #f0f2f5;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.member-summary p {
+  margin-bottom: 5px;
+}
+
+.member-summary p:last-child {
+  margin-bottom: 0;
+}
+
+.member-summary .active-count {
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.member-summary .inactive-count {
+  font-weight: bold;
+  color: #9e9e9e;
+}
+
+.add-member-message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.add-member-message.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.add-member-message.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.info-message {
+  color: green;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.error-message {
+  color: #dc3545;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.loading-message,
+.no-content-message {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+/* Calendar & Event Management */
+.event-creation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.event-creation-form input,
+.event-creation-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.event-creation-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.event-creation-form button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.event-creation-form button:hover {
+  background-color: #303f9f;
+}
+
+.event-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.event-list li {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+}
+
+.event-list li h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #3f51b5;
+}
+
+.event-list li p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.event-list li p:last-child {
+  margin-top: 10px;
+  font-style: italic;
+  color: #777;
+} 

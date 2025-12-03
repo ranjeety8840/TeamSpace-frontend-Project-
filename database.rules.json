@@ -1,0 +1,68 @@
+{
+  "rules": {
+    "workspaces": {
+      "$workspaceId": {
+        ".read": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)",
+        ".write": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)",
+        
+        "presence": {
+          "$uid": {
+            ".read": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)",
+            ".write": "auth != null && $uid === auth.uid"
+          }
+        },
+        
+        "videoRoom": {
+          "$uid": {
+            ".read": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)",
+            ".write": "auth != null && $uid === auth.uid"
+          }
+        },
+        
+        "signals": {
+          "$signalId": {
+            ".read": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)",
+            ".write": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)"
+          }
+        },
+        
+        "files": {
+          "$fileId": {
+            ".read": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)",
+            ".write": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)"
+          }
+        },
+        
+        "drawings": {
+          "$drawingId": {
+            ".read": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)",
+            ".write": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)"
+          }
+        }
+      }
+    },
+    
+    "userStatus": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && $uid === auth.uid"
+      }
+    },
+    
+    "notifications": {
+      "$uid": {
+        ".read": "auth != null && $uid === auth.uid",
+        ".write": "auth != null && $uid === auth.uid"
+      }
+    },
+    
+    "typing": {
+      "$workspaceId": {
+        "$uid": {
+          ".read": "auth != null && root.child('workspaces').child($workspaceId).child('memberUids').hasChild(auth.uid)",
+          ".write": "auth != null && $uid === auth.uid"
+        }
+      }
+    }
+  }
+} 

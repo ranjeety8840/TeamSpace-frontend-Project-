@@ -1,0 +1,286 @@
+/* Dashboard.css */
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f7fa;
+}
+
+.dashboard-header {
+  background-color: #282c34;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.dashboard-nav button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  margin-left: 10px;
+}
+
+.dashboard-nav button:hover {
+  background-color: #21a1f1;
+  color: white;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.welcome-message {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.workspaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.workspace-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.workspace-card:hover {
+  transform: translateY(-5px);
+}
+
+.workspace-card h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.workspace-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.workspace-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.workspace-card-link {
+  display: block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  text-align: center;
+  width: 140px;
+  height: 40px;
+  line-height: 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  z-index: 1;
+}
+
+.workspace-card-link:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+
+.workspace-admin-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.edit-button,
+.delete-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 70px;
+}
+
+.edit-button {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.no-workspaces {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  margin-top: 30px;
+}
+
+/* New styles for workspace list in Dashboard */
+.workspaces-section {
+  margin-top: 30px;
+}
+
+.workspaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.workspace-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.workspace-card:hover {
+  transform: translateY(-5px);
+}
+
+.workspace-card h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.workspace-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.workspace-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.workspace-card-link {
+  display: block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  text-align: center;
+  width: 140px;
+  height: 40px;
+  line-height: 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  z-index: 1;
+}
+
+.workspace-card-link:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+
+.workspace-admin-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.edit-button,
+.delete-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 70px;
+}
+
+.edit-button {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+} 
