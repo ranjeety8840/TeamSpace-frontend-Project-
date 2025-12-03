@@ -58,5 +58,5 @@ TeamSpace is a real-time collaboration app for teams. It provides workspaces wit
 
 ## License
 
-Open source. Add your preferred license if needed.
+Open source.
 
