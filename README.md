@@ -2,7 +2,7 @@
 
 TeamSpace is a real-time collaboration app for teams. It provides workspaces with chat, documents, tasks, file sharing, events, and member management — all powered by Firebase and built with React + Vite.
 
-🔗 Live Demo: https://teamspace12.netlify.app
+🔗 Live Demo: [https://teamspace12.netlify.app](https://teamspace-frontend-project.onrender.com)
 
 ## Tech Stack
 
