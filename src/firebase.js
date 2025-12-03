@@ -10,7 +10,7 @@ const firebaseConfig = {
   databaseURL:
     "https://newproject-cf446-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "newproject-cf446",
-  storageBucket: "newproject-cf446.firebasestorage.app",
+  storageBucket: "newproject-cf446.appspot.com",
   messagingSenderId: "552559689378",
   appId: "1:552559689378:web:1a66e43a98656f0a9021fb",
   measurementId: "G-9XFRSXZ6M7",
